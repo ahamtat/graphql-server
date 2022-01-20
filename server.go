@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"os"
 
-	database "github.com/ahamtat/graphql-server/internal/pkg/db"
+	database "github.com/ahamtat/graphql-server/internal/pkg/db/mysql"
 
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/99designs/gqlgen/graphql/playground"
