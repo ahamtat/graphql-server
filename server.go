@@ -5,6 +5,8 @@ import (
 	"net/http"
 	"os"
 
+	database "github.com/ahamtat/graphql-server/internal/pkg/db"
+
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/99designs/gqlgen/graphql/playground"
 	"github.com/ahamtat/graphql-server/graph"
@@ -18,6 +20,9 @@ func main() {
 	if port == "" {
 		port = defaultPort
 	}
+
+	database.InitDB()
+	database.Migrate()
 
 	srv := handler.NewDefaultServer(generated.NewExecutableSchema(generated.Config{Resolvers: &graph.Resolver{}}))
 
